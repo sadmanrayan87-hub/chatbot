@@ -118,4 +118,6 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, "127.0.0.1", () => console.log(`Companion chat on http://127.0.0.1:${PORT} (model: ${LLM_MODEL})`));
+// HOST=0.0.0.0 lets other devices on your Wi-Fi (e.g. your phone) connect. Default is this computer only.
+const HOST = process.env.HOST || "127.0.0.1";
+server.listen(PORT, HOST, () => console.log(`Companion chat on http://${HOST === "0.0.0.0" ? "<this-PC-IP>" : HOST}:${PORT} (model: ${LLM_MODEL})`));

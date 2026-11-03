@@ -39,7 +39,7 @@ LLM_MODEL=gemma2:9b node server.js
 
 ## Notes
 
-- The server binds to `127.0.0.1`. Put it behind HTTPS and authentication before exposing it.
+- The server binds to `127.0.0.1` (this computer only) by default. Set `HOST=0.0.0.0` to let devices on your Wi-Fi connect, for example `$env:HOST="0.0.0.0"; node server.js` in PowerShell, then open `http://<PC-IP>:3000` on the phone. Anyone on that network can then reach it, so only do this on a network you trust. Put it behind HTTPS and authentication before exposing it to the internet.
 - Chat history is stored only in the user's browser (`localStorage`). The server keeps no logs of messages.
 - Use an open model whose licence permits your use case, and check the laws of where you host and who your users are.
 - This directory is self-contained, so you can move it into its own repo.
